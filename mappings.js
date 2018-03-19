@@ -1,11 +1,12 @@
-
+// STRING UTILITIES
+// ============================================================================
 
 const capitalize = str => str
-.toLowerCase()
-.trim()
-.split( /\s+/ )
-.map( word => `${ word[0].toUpperCase() }${ word.substring( 1 ) }` )
-.join( ' ' );
+  .toLowerCase()
+  .trim()
+  .split( /\s+/ )
+  .map( word => `${ word[0].toUpperCase() }${ word.substring( 1 ) }` )
+  .join( ' ' );
 
 // WEAKNESS ENUM
 // ============================================================================
@@ -83,10 +84,11 @@ const elementsOrder = [
   'dark',
 ];
 const elementsObjectToArray = elements => elementsOrder.map( name => elements[ name ] ).join( '' );
-const elementsArrayToObject = elements => elements.split( '' ).reduce( ( memo, id, idx ) => ( {
-  ...memo,
-  [ elementsOrder[ idx ] ]: weaknessName( id ),
-} ), {} );
+// This would be the strict reverse of elementsObjectToArray -- it is unused.
+// const elementsArrayToObject = elements => elements.split( '' ).reduce( ( memo, id, idx ) => ( {
+//   ...memo,
+//   [ elementsOrder[ idx ] ]: weaknessName( id ),
+// } ), {} );
 // The added ternary around the reduce() function's return omits the "normal" elements.
 const elementsArrayToList = elements => elements.split( '' ).reduce(
   ( list, id, idx ) => +id ?
@@ -95,45 +97,12 @@ const elementsArrayToList = elements => elements.split( '' ).reduce(
   []
 ).sort();
 
-// Methods to inject a list and get the necessary getters
-
-const createSkillMethods = skills => {
-  const skillIDsByName = skills.reduce(
-    ( idsByName, skill, idx ) => ( {
-      ...idsByName,
-      [ skill ]: idx,
-    } ),
-    {}
-  );
-  return {
-    skillId: skill => skillIDsByName[ skill ],
-    skillName: id => skills[ id ],
-  };
-};
-
-const createBlockMethods = blockNames => {
-  const blockIDsByName = blockNames.reduce(
-    ( idsByName, name, idx ) => ( {
-      ...idsByName,
-      [ name ]: idx,
-    } ),
-    {}
-  );
-  return {
-    blockId: name => blockIDsByName[ name ],
-    blockName: id => blockNames[ id ],
-  };
-};
-
 module.exports = {
   capitalize,
   weaknessId,
   weaknessName,
   elementsObjectToArray,
-  elementsArrayToObject,
   elementsArrayToList,
   compressObj,
   expandObj,
-  createSkillMethods,
-  createBlockMethods,
 };

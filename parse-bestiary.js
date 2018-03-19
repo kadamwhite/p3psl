@@ -13,9 +13,6 @@ const {
   elementsArrayToList,
   elementsObjectToArray,
   compressObj,
-  expandObj,
-  createSkillMethods,
-  createBlockMethods,
 } = require( './mappings' );
 
 const SECTION_HEADING_RE = /\s+\/=+\\\n\s+\(\s(.*?)\s\)\s+\(Q\d+\)\n\s+\\=+\//;
@@ -136,10 +133,28 @@ const skills = Object.keys( blocks.reduce(
   ),
   []
 ) ).sort();
-const { skillId, skillName } = createSkillMethods( skills );
+const skillIDsByName = skills.reduce(
+  ( idsByName, skill, idx ) => ( {
+    ...idsByName,
+    [ skill ]: idx,
+  } ),
+  {}
+);
+const skillId = skill => skillIDsByName[ skill ];
+// Retrieve through dictionary lookup:
+// const skillName = id => skills[ id ];
 
 const blockNames = blocks.map( block => capitalize( block.name ) );
-const { blockId, blockName } = createBlockMethods( blockNames );
+const blockIDsByName = blockNames.reduce(
+  ( idsByName, name, idx ) => ( {
+    ...idsByName,
+    [ name ]: idx,
+  } ),
+  {}
+);
+const blockId = name => blockIDsByName[ name ];
+// Retrieve through dictionary lookup:
+// const blockName = id => blockNames[ id ];
 
 const bestiary = blocks.reduce(
   ( bestiary, block ) => block.reduce(
@@ -153,16 +168,6 @@ const bestiary = blocks.reduce(
   ),
   []
 );
-
-// const reassembleEntry = compressedEntry => {
-//   const entry = expandObj( compressedEntry );
-//   return {
-//     ...entry,
-//     weaknesses: elementsArrayToList( entry.weaknesses ),
-//     skills: entry.skills.map( skillName ),
-//     block: blockName( entry.block ),
-//   };
-// };
 
 fs.writeFileSync( resolve( __dirname, 'data.json' ), JSON.stringify( {
   bestiary,
