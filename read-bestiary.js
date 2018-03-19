@@ -3,22 +3,22 @@
  */
 const { bestiary, skills, blockNames } = require( './data.json' );
 
-const { expandObj, elementsArrayToList } = require( './mappings' );
+const { weaknessesList } = require( './util/weaknesses' );
+const { expandObj } = require( './util/data-compression' );
 
 const reassembleEntry = compressedEntry => {
   const entry = expandObj( compressedEntry );
   return {
     ...entry,
-    weaknesses: elementsArrayToList( entry.weaknesses ),
+    weaknesses: weaknessesList( entry.weaknesses ),
     skills: entry.skills.map( id => skills[ id ] ),
     block: blockNames[ entry.block ],
   };
 };
 
-
 // Asynchronously reassemble entries, using setTimeout and promises to avoid
-// locking the UI thread with this seriously complex data processing :)
-const entriesPromise = bestiary.reduce(
+// locking the UI thread with this _seriously_ complex data processing :)
+const processBestiary = bestiary.reduce(
   ( eventuallyCollection, compressedEntry ) => new Promise( resolve => {
     eventuallyCollection.then( collection => {
       setTimeout( () => {
@@ -30,28 +30,14 @@ const entriesPromise = bestiary.reduce(
   Promise.resolve( [] )
 );
 
-console.reset = function () {
-  return process.stdout.write('\033c');
+module.exports = {
+  /**
+   * Return the full, expanded data objects.
+   * @async 
+   */
+  parse: () => processBestiary.then( ( bestiary ) => ( {
+    bestiary,
+    skills,
+    blockNames,
+  } ) ),
 };
-
-let idx = 0;
-const str = '-\\|/';
-const spinner = () => {
-  idx++;
-  if ( idx === str.length ) {
-    idx = 0;
-  }
-  return str[idx];
-};
-console.spinner = function () {
-  return console.log( spinner() );
-}
-const interval = setInterval( () => {
-  console.reset();
-  console.spinner();
-} );
-
-entriesPromise.then( results => {
-  clearInterval( interval );
-  console.log( results[5] );
-} );
