@@ -8,6 +8,7 @@ const fs = require( 'fs' );
 const resolve = require( 'path' ).resolve;
 
 const {
+  capitalize,
   weaknessId,
   elementsArrayToList,
   elementsObjectToArray,
@@ -25,13 +26,6 @@ const ENTRY_SKILLS_RE = /\|\s-\s([^|]+)\|/g;
 
 // UTILITY FUNCTIONS
 // ============================================================================
-
-const capitalize = str => str
-  .toLowerCase()
-  .trim()
-  .split( /\s+/ )
-  .map( word => `${ word[0].toUpperCase() }${ word.substring( 1 ) }` )
-  .join( ' ' );
 
 // Sanity-check method to validate the possibility space of weakness descriptors.
 // Could be run on an earlier incarnation of `blocks`;

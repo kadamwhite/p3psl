@@ -1,3 +1,12 @@
+
+
+const capitalize = str => str
+.toLowerCase()
+.trim()
+.split( /\s+/ )
+.map( word => `${ word[0].toUpperCase() }${ word.substring( 1 ) }` )
+.join( ' ' );
+
 // WEAKNESS ENUM
 // ============================================================================
 
@@ -80,7 +89,7 @@ const elementsArrayToObject = elements => elements.split( '' ).reduce( ( memo, i
 } ), {} );
 // The added ternary around the reduce() function's return omits the "normal" elements.
 const elementsArrayToList = elements => elements.split( '' ).reduce(
-  ( list, id, idx ) => id ?
+  ( list, id, idx ) => +id ?
     list.concat( `${ weaknessName( id ) } ${ capitalize( elementsOrder[idx] ) }` ) :
     list,
   []
@@ -117,6 +126,7 @@ const createBlockMethods = blockNames => {
 };
 
 module.exports = {
+  capitalize,
   weaknessId,
   weaknessName,
   elementsObjectToArray,
