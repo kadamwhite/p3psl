@@ -1,0 +1,19 @@
+/*
+female MC menu palette: [ '#fb8ade', '#6a0713' ]
+male MC menu palette: [ '#5299f9', '#18213a' ]
+*/
+.bg {
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
+}
+
+.bg.pink ellipse { fill: #fb8ade; }
+.bg.pink { background: #6a0713; }
+
+.bg.blue ellipse { fill: #5299f9; }
+.bg.blue { background: #18213a; }

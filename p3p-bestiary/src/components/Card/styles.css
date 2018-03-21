@@ -1,0 +1,53 @@
+/* Card ratio 2.5" x 3.5" */
+.card {
+  width: 250px;
+  max-width: 100%;
+  padding-bottom: 140%; /* ( 3.5 / 2.5 ) * 100 */
+  transform-origin: center;
+  transform: rotate( 33deg );
+
+  animation: fade-in;
+  animation-duration: 500ms;
+  animation-timing-function: ease-out;
+
+  border-radius: 2px;
+}
+.pink .card {
+  background: #fb8ade;
+}
+.blue .card {
+  background: #5299f9;
+}
+
+.card-container {
+  display: inline-block;
+  max-width: 4em;
+  transform-origin: center;
+
+  animation-name: spin;
+  animation-delay: 300ms; /* Wait for fade-in to partially complete */
+  animation-direction: alternate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes fade-in {
+  from {
+    transform: rotate( 0 ) scale( 0 );
+  }
+
+  to {
+    transform: rotate( 33deg ) scale( 1 );
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate3d( 0, 1, 0, 0 );
+  }
+
+  to {
+    transform: rotate3d( 0, 1, 0, 180deg );
+  }
+}

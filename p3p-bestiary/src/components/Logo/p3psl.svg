@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="320mm" height="100mm" version="1.1" viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
+<title>Persona 3 Portable Shadow List</title>
 <g transform="translate(0,-197)">
 <g transform="matrix(3.2073 0 0 3.2073 -163.77 -491.48)" fill-opacity=".78431">
 <path d="m69.378 223.76h-2.5337v2.5086h-12.518v7.5259h-2.4585v-14.977h2.5086v-2.5086h12.493v2.5086h2.5086zm-2.5337 0v-4.942h-12.468v4.942z" fill="#fff"/>

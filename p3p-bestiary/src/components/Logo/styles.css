@@ -1,0 +1,12 @@
+/* .logo {
+  opacity: 0.78431;
+} */
+.logo path {
+  fill: #323232;
+  stroke: white;
+  stroke-width: 0.1px;
+}
+.logo path.white {
+  fill: white;
+  stroke: #323232;
+}
