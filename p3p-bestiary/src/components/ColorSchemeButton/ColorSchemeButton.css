@@ -1,10 +1,25 @@
 .select-color-scheme {
+  cursor: pointer;
+  box-sizing: content-box;
   padding: 0;
   background: transparent;
   border: 0;
   width: 45px;
   height: 45px;
   display: inline-block;
+}
+.select-color-scheme:focus {
+  outline: 0;
+}
+.select-color-scheme:first-child:focus {
+  border-top: 1px solid #282828;
+  border-right: 1px solid #282828;
+  border-top-right-radius: 2px;
+}
+.select-color-scheme:last-child:focus {
+  border-top: 1px solid #282828;
+  border-left: 1px solid #282828;
+  border-top-left-radius: 2px;
 }
 .select-color-scheme img {
   width: 45px;
