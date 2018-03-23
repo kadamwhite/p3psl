@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Home from './components/Home';
+import { BrowserRouter } from 'react-router-dom';
+import Background from './components/Background';
+import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
+import './index.css';
 
-ReactDOM.render(<Home />, document.getElementById('root'));
+ReactDOM.render(<Background />, document.getElementById('background'));
+ReactDOM.render((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+), document.getElementById('root'));
 registerServiceWorker();

@@ -1,10 +1,14 @@
-/* .logo {
-  opacity: 0.78431;
-} */
 .logo path {
   fill: #323232;
   stroke: white;
   stroke-width: 0.1px;
+  transition: fill 200ms, stroke 200ms, stroke-width 200ms;
+}
+.collapsed .logo path {
+  fill: white;
+  stroke-width: 0.1px;
+  stroke: white;
+  transition-delay: 100ms;
 }
 .logo path.white {
   fill: white;

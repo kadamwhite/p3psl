@@ -1,0 +1,39 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  margin-top: 1em;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 31.5%;
+  flex: 0 0 auto;
+  transition: margin 200ms, padding-bottom 200ms;
+}
+header.collapsed {
+  margin-top: 0.5em;
+  padding-bottom: 12%;
+}
+header a {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin: 0.5em;
+  padding: 0 1em;
+  background: rgba( 255, 255, 255, 0.5 );
+  border-radius: 2px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

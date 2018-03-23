@@ -2,14 +2,13 @@
 female MC menu palette: [ '#fb8ade', '#6a0713' ]
 male MC menu palette: [ '#5299f9', '#18213a' ]
 */
-.bg {
+#background svg {
   position: fixed;
   pointer-events: none;
   left: 0;
   top: 0;
   width: 100% !important;
   height: 100% !important;
-  z-index: 0;
 }
 
 .bg.pink ellipse { fill: #fb8ade; }
