@@ -2,6 +2,7 @@
   "name": "p3p-bestiary",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://kadamwhite.github.io/p3psl",
   "dependencies": {
     "classnames": "^2.2.5",
     "react": "^16.2.0",
