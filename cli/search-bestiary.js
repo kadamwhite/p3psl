@@ -1,4 +1,4 @@
-const { parse } = require( '../src/isomorphic-utils/lib/data' );
+const { parse } = require( '../src/isomorphic-utils/data' );
 
 const [ , , ...argv ] = process.argv;
 
@@ -17,8 +17,7 @@ const args = argv.join().toLowerCase()
 console.log( args );
 
 parse()
-  .then( data => data.bestiary )
-  .then( shadows => shadows.filter( shadow => {
+  .then( data => data.shadows.filter( shadow => {
     const { name, block } = args;
     if ( name && shadow.name.toLowerCase().indexOf( name ) < 0 ) {
       return false;
