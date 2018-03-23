@@ -5,10 +5,10 @@ const {
   bestiary,
   skills,
   blockNames,
-} = require( './data.json' );
+} = require( '../data/data.json' );
 
 const slugify = require( './slugify' );
-const { weaknessesList } = require( '../../../util/weaknesses' );
+const { weaknessesList } = require( './weaknesses' );
 const { expandObj } = require( './data-compression' );
 
 /**
@@ -28,11 +28,9 @@ const reassembleEntry = compressedEntry => {
   };
 };
 
-/**
- * Asynchronously reassemble entries, using setTimeout and promises to avoid
- * locking the UI thread with this _seriously_ complex data processing :)
- */
-const processBestiary = () => bestiary.reduce(
+// Asynchronously reassemble entries, using setTimeout and promises to avoid
+// locking the UI thread with this _seriously_ complex data processing :)
+const processBestiary = bestiary.reduce(
   ( eventuallyCollection, compressedEntry ) => new Promise( resolve => {
     eventuallyCollection.then( collection => {
       setTimeout( () => {
@@ -49,7 +47,7 @@ module.exports = {
    * Return the full, expanded data objects.
    * @async
    */
-  parse: () => processBestiary().then( shadows => ( {
+  parse: () => processBestiary.then( shadows => ( {
     shadows,
     skills,
     blockNames,

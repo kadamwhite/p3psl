@@ -13,6 +13,7 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
+    "create-data-file": "node cli/parse-bestiary-text",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

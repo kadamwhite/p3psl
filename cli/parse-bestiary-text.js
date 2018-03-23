@@ -11,9 +11,9 @@ process.on( 'unhandledRejection', err => {
 const fs = require( 'fs' );
 const resolve = require( 'path' ).resolve;
 
-const capitalize = require( './util/capitalize' );
-const { weaknessesArray } = require( './util/weaknesses' );
-const { compressObj } = require( './util/data-compression' );
+const capitalize = require( '../src/isomorphic-utils/capitalize' );
+const { weaknessesArray } = require( '../src/isomorphic-utils/weaknesses' );
+const { compressObj } = require( '../src/isomorphic-utils/data-compression' );
 
 // PARSING LOGIC
 // ============================================================================
@@ -35,7 +35,7 @@ const trimAndCleanMatch = match => match && match.map( capture => {
 } ) || [];
 
 /**
- * 
+ *
  * @param {String} str The bestiary entry
  */
 const parseBestiaryEntry = ( str, block ) => {
@@ -158,7 +158,7 @@ const bestiary = blocks.reduce(
 // WRITE FILE
 // ============================================================================
 
-fs.writeFileSync( resolve( __dirname, 'data.json' ), JSON.stringify( {
+fs.writeFileSync( resolve( __dirname, '../src/data/data.json' ), JSON.stringify( {
   bestiary,
   blockNames,
   skills,

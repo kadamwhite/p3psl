@@ -1,4 +1,4 @@
-import { parse } from './data';
+import { parse } from '../isomorphic-utils/data';
 
 export const getData = () => parse();
 

@@ -1,10 +1,4 @@
-// STRING UTILITIES
-// ============================================================================
-
 const capitalize = require( './capitalize' );
-
-// COMPRESS AND DECOMPRESS WEAKNESSES
-// ============================================================================
 
 const elementsOrder = [
   'slash',

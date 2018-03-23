@@ -13,8 +13,6 @@ const longKeys = Object.keys( shortKeys ).reduce( ( memo, longKey ) => ( {
   ...memo,
   [ shortKeys[ longKey ] ]: longKey,
 } ), {} );
-const getShortKey = longKey => shortKeys[ longKey ];
-const getLongKey = shortKey => longKeys[ shortKey ];
 
 const compressObj = obj => Object.keys( obj ).reduce( ( compressedObj, key ) => ( {
   ...compressedObj,

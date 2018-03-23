@@ -1,4 +1,4 @@
-const { parse } = require( './original-attempt/src/lib/data' );
+const { parse } = require( '../src/isomorphic-utils/lib/data' );
 
 const [ , , ...argv ] = process.argv;
 
