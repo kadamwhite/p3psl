@@ -1,4 +1,18 @@
 /* Card ratio 2.5" x 3.5" */
+
+.spinner {
+  display: inline-block;
+  max-width: 4em;
+  transform-origin: center;
+
+  animation-name: spin;
+  animation-delay: 300ms; /* Wait for fade-in to partially complete */
+  animation-direction: alternate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
 .card {
   width: 250px;
   max-width: 100%;
@@ -17,19 +31,6 @@
 }
 .blue .card {
   background: #5299f9;
-}
-
-.card-container {
-  display: inline-block;
-  max-width: 4em;
-  transform-origin: center;
-
-  animation-name: spin;
-  animation-delay: 300ms; /* Wait for fade-in to partially complete */
-  animation-direction: alternate;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
 }
 
 @keyframes fade-in {

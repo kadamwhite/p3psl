@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import './Logo.css';
 
 const Logo = () => (
   <svg className="logo" viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">

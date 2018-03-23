@@ -32,7 +32,7 @@ header a {
   border-radius: 2px;
 }
 
-.loading {
+.content.loading {
   display: flex;
   align-items: center;
   justify-content: center;

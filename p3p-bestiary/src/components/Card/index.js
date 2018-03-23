@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.css';
+import './Card.css';
 
 const Card = ( { color = 'pink' } ) => (
-  <div className={ `card-container ${ color }` }>
+  <div className={ `spinner ${ color }` }>
     <div className="card" />
   </div>
 );
