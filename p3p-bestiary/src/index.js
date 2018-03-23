@@ -5,10 +5,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import BackgroundContainer from './containers/BackgroundContainer';
 import App from './components/App';
 import store from './state/store';
+import { loadData } from './state/actions';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 window.store = store;
+
+// Kick off initial data load immediately
+store.dispatch(loadData());
 
 ReactDOM.render((
   <Provider store={ store }>

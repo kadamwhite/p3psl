@@ -6,9 +6,9 @@ const mapStateToProps = state => ({
   collapsed: state.collapsed,
 });
 
-const mapDispatchToProps = ( dispatch ) => ({
+const mapDispatchToProps = (dispatch) => ({
   onCollapse: () => dispatch(collapseHeader()),
   onExpand: () => dispatch(expandHeader()),
 });
 
-export default connect( mapStateToProps, mapDispatchToProps )( Content );
+export default connect(mapStateToProps, mapDispatchToProps)(Content);

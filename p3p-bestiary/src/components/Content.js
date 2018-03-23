@@ -22,9 +22,9 @@ class Content extends Component {
 
   onScroll() {
     const { collapsed, onExpand, onCollapse } = this.props;
-    if ( ! collapsed && this.contentContainer.scrollTop > 65 ) {
+    if (!collapsed && this.contentContainer.scrollTop > 65) {
       onCollapse();
-    } else if ( collapsed && this.contentContainer.scrollTop <= 65 ) {
+    } else if (collapsed && this.contentContainer.scrollTop <= 65) {
       onExpand();
     }
   }

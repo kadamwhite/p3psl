@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ScreenReaderText from '../ScreenReaderText';
 import maleProtagonistPortrait from './male-mc-portrait-icon.png';
 import femaleProtagonistPortrait from './female-mc-portrait-icon.png';
 import './ColorSchemeButton.css';
 
 export const ColorSchemeButton = ({ alt, color, image, onClick }) => (
   <button className="select-color-scheme" onClick={ onClick }>
-    <span class="screen-reader-text">
+    <ScreenReaderText>
       Change to the { color } colorscheme
-    </span>
+    </ScreenReaderText>
     <img src={ image } alt={ alt } />
   </button>
 );
@@ -24,7 +25,7 @@ export const BlueColorSchemeButton = ({ onClick }) => ColorSchemeButton({
   alt: 'Portrait of Persona 3 male protagonist',
   color: 'blue',
   image: maleProtagonistPortrait,
-  onClick: () => onClick( 'blue' ),
+  onClick: () => onClick('blue'),
 });
 
 export const PinkColorSchemeButton = ({ onClick }) => ColorSchemeButton({

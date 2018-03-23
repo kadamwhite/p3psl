@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
-const middleware = [];
+const middleware = [ thunk ];
 
 // Setup for the Redux Logger. Only logs in development mode.
 if ( process.env.NODE_ENV === 'development' ) {

@@ -5,8 +5,8 @@ import {
 } from '../components/ColorSchemeButton';
 import { switchColor } from '../state/actions';
 
-const mapDispatchToProps = ( dispatch ) => ({
-  onClick: ( color ) => dispatch(switchColor(color)),
+const mapDispatchToProps = (dispatch) => ({
+  onClick: (color) => dispatch(switchColor(color)),
 });
 
 export const BlueColorSchemeButtonContainer = connect(null, mapDispatchToProps)(BlueColorSchemeButton);
