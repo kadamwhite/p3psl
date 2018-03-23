@@ -3,6 +3,10 @@ import { Route, Switch, Link } from 'react-router-dom';
 import Card from '../Card';
 import ContentContainer from '../../containers/ContentContainer';
 import HeaderContainer from '../../containers/HeaderContainer';
+import {
+  BlueColorSchemeButtonContainer,
+  PinkColorSchemeButtonContainer,
+} from '../../containers/ColorSchemeButtonContainer';
 import NoMatch from '../NoMatch';
 import './App.css';
 
@@ -57,6 +61,10 @@ const App = () => (
         <Route component={ NoMatch } />
       </Switch>
     </ContentContainer>
+    <div className="color-scheme-buttons">
+      <BlueColorSchemeButtonContainer />
+      <PinkColorSchemeButtonContainer />
+    </div>
   </div>
 );
 

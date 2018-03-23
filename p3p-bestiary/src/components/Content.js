@@ -44,10 +44,10 @@ class Content extends Component {
 
 Content.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.oneOf([
-    PropTypes.node,
-    PropTypes.arrayOf( PropTypes.node ),
-  ]).isRequired,
+  // children: PropTypes.oneOf([
+  //   PropTypes.node,
+  //   PropTypes.arrayOf( PropTypes.node ),
+  // ]).isRequired,
   collapsed: PropTypes.bool.isRequired,
   onExpand: PropTypes.func.isRequired,
   onCollapse: PropTypes.func.isRequired,

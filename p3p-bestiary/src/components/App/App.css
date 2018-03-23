@@ -37,3 +37,21 @@ header a {
   align-items: center;
   justify-content: center;
 }
+
+.color-scheme-buttons {
+  position: fixed;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.color-scheme-buttons button {
+  position: absolute;
+  bottom: 0;
+}
+.color-scheme-buttons button:first-child {
+  left: 0;
+}
+.color-scheme-buttons button:last-child {
+  right: 0;
+}

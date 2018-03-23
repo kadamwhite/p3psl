@@ -1,0 +1,11 @@
+.select-color-scheme {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  width: 45px;
+  height: 45px;
+  display: inline-block;
+}
+.select-color-scheme img {
+  width: 45px;
+}

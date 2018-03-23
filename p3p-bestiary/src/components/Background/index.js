@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Background.css';
 
-const Card = ( { color = 'pink' } ) => (
+const Background = ({ primary, secondary }) => (
   <svg
-    className={ `bg ${ color }` }
+    className="background"
+    style={{ background: secondary }}
     viewBox="0 0 400 600"
     aria-hidden="true"
   >
     <ellipse
+      fill={primary}
       cx="0"
       cy="750"
       rx="370"
@@ -17,8 +19,9 @@ const Card = ( { color = 'pink' } ) => (
   </svg>
 );
 
-Card.propTypes = {
-  color: PropTypes.oneOf([ 'pink', 'blue' ]),
+Background.propTypes = {
+  primary: PropTypes.string.isRequired,
+  secondary: PropTypes.string.isRequired,
 };
 
-export default Card;
+export default Background;
