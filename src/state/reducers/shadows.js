@@ -9,7 +9,10 @@ const defaultState = {
 
 const combineShadows = (shadow1, shadow2) => ({
   ...shadow1,
-  location: [shadow1.location, shadow2.location].join(', '),
+  // Even if shadow1 is defined, its location may be ''
+  location: shadow1.location ?
+    [shadow1.location, shadow2.location].join(', ') :
+    shadow2.location,
 });
 
 export default ( state = defaultState, action ) => {

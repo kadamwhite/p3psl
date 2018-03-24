@@ -33,7 +33,7 @@ const trimAndCleanMatch = match => match && match.map( capture => {
   if (!capture) {
     return '';
   }
-  const trimmed = capture.trim();
+  const trimmed = capture.trim().replace(/\s\|\s*$/, '');
   return /^\d+$/.test( trimmed ) ? +trimmed : trimmed;
 } ) || [];
 

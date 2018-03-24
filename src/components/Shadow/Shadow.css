@@ -2,6 +2,13 @@
   list-style-type: none;
   margin-bottom: 2em;
 }
+.shadow::after {
+  content: " ";
+  display: block;
+  margin: 0 -0.75em;
+  border-bottom: 3px double;
+  border-color: inherit;
+}
 
 .shadow h2 {
   font-weight: normal;
@@ -49,12 +56,17 @@ table {
   border-right: 0;
 }
 
+.location {
+  text-align: center;
+  border-top: 1px solid;
+}
+
 .shadow .arcana {
   font-style: italic;
 }
 
 .shadow .skills ul {
-  margin-top: 0.25em;
+  margin: 0.25em 0 2em;
   list-style-type: none;
   padding: 0;
   font-size: 0.9em;

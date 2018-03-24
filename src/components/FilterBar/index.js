@@ -38,7 +38,12 @@ class FilterBar extends PureComponent {
         }}
         onSubmit={ onSubmit }
       >
-        <input type="text" name="search" onKeyUp={ onKeyUp } />
+        <input
+          type="text"
+          name="search"
+          placeholder="Filter List..."
+          onKeyUp={ onKeyUp }
+        />
         <button className="screen-reader-text" type="submit">Search</button>
       </form>
     );
@@ -50,7 +55,7 @@ FilterBar.propTypes = {
     primary: PropTypes.string.isRequired,
     secondary: PropTypes.string.isRequired,
   }).isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default FilterBar;

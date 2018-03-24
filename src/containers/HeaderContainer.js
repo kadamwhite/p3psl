@@ -19,7 +19,7 @@ Header.propTypes = {
 
 const mapStateToProps = state => ({
   // Collapse when scrolled down or when searching
-  collapsed: state.collapsed || state.filters.search,
+  collapsed: !!(state.collapsed || state.filters.search),
 });
 
 export default connect(mapStateToProps)(Header);

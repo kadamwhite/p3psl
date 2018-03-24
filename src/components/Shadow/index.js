@@ -19,9 +19,7 @@ const hasStats = (shadow) => (
 
 const Stats = ({ shadow, color }) => hasStats(shadow) ? (
   <div className="stats">
-    <table
-      style={{ borderColor: color.secondary }}
-    >
+    <table style={{ borderColor: color.secondary }}>
       <thead>
         <tr style={{ background: color.secondary }}>
           <th>Level</th>
@@ -35,6 +33,13 @@ const Stats = ({ shadow, color }) => hasStats(shadow) ? (
         <td>{ shadow.hp }</td>
         <td>{ shadow.sp }</td>
       </tr>
+      { shadow.location ? (
+        <tr>
+          <td className="location" colSpan="3">
+            { shadow.location }
+          </td>
+        </tr>
+      ) : null }
       </tbody>
     </table>
   </div>
@@ -58,32 +63,32 @@ const Elements = ({ elements }) => (
 const Shadow = (props) => {
   const { shadow, color } = props;
   return (
-  <li className="shadow">
-    <h2>
-      {/*<Link
-        style={{ color: color.secondary }}
-        to={ `/${ shadow.slug }/` }
-      >*/}
-        { shadow.name }
-      {/*</Link>*/}
-    </h2>
+    <li className="shadow" style={{ borderColor: color.secondary }}>
+      <h2>
+        <Link
+          style={{ color: color.secondary }}
+          to={ `/${ shadow.slug }/` }
+        >
+          { shadow.name }
+        </Link>
+      </h2>
 
-    <ArcanaMessage arcana={ shadow.arcana } />
+      <ArcanaMessage arcana={ shadow.arcana } />
 
-    <Stats { ...{ shadow, color } } />
+      <Stats { ...{ shadow, color } } />
 
-    <Elements elements={shadow.weaknesses} />
+      <Elements elements={shadow.weaknesses} />
 
-    <div className="skills">
-      <p>Skills:</p>
-      <ul className="skills">
-        { shadow.skills.map((skill) => (
-          <li key={skill}>{ skill }</li>
-        ))}
-      </ul>
-    </div>
-  </li>
-);
+      <div className="skills">
+        <p>Skills:</p>
+        <ul className="skills">
+          { shadow.skills.map((skill) => (
+            <li key={skill}>{ skill }</li>
+          ))}
+        </ul>
+      </div>
+    </li>
+  );
 }
 
 Shadow.propTypes = {

@@ -15,7 +15,7 @@ import FilterContainer from '../../containers/FilterContainer';
 const App = () => (
   <div className="App">
     <HeaderContainer />
-    <FilterContainer />
+    <Route exact path="/" component={ FilterContainer } />
     <ContentContainer className="content">
       <Switch>
         <Route exact path="/" component={ ShadowListContainer } />
