@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
-import Card from '../Card';
+import { Route, Switch } from 'react-router-dom';
 import ContentContainer from '../../containers/ContentContainer';
 import HeaderContainer from '../../containers/HeaderContainer';
 import {
@@ -8,55 +7,19 @@ import {
   PinkColorSchemeButtonContainer,
 } from '../../containers/ColorSchemeButtonContainer';
 import NoMatch from '../NoMatch';
-import './App.css';
 import ShadowListContainer from '../../containers/ShadowListContainer';
-
-// eslint-disable-next-line
-const LoadingSpinner = () => <Card />;
-
-const Home = () => (
-  <div>
-    <p><Link to="/shadow">Space</Link></p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-    <p>Space</p>
-  </div>
-);
-
-const Shadow = () => (
-  <p>Shadow!</p>
-);
+import ShadowContainer from '../../containers/ShadowContainer';
+import './App.css';
+import FilterContainer from '../../containers/FilterContainer';
 
 const App = () => (
   <div className="App">
     <HeaderContainer />
+    <FilterContainer />
     <ContentContainer className="content">
       <Switch>
         <Route exact path="/" component={ ShadowListContainer } />
-        <Route path="/shadow" component={ Shadow } />
+        <Route path="/:shadow" component={ ShadowContainer } />
         <Route component={ NoMatch } />
       </Switch>
     </ContentContainer>

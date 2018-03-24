@@ -1,7 +1,14 @@
 import classNames from 'classnames';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import compareProps from '../lib/compare-props';
 import { renderable } from '../lib/shapes';
+
+const hasObjectChanged = compareProps([
+  'children',
+  'LoadingSpinner',
+  'location',
+]);
 
 class Content extends Component {
   constructor(props) {
@@ -18,11 +25,8 @@ class Content extends Component {
     this.contentContainer.removeEventListener('scroll', this.onScroll);
   }
 
-  shouldComponentUpdate( nextProps ) {
-    return (
-      this.props.children !== nextProps.children ||
-      this.props.LoadingSpinner !== nextProps.LoadingSpinner
-    );
+  shouldComponentUpdate(nextProps) {
+    return hasObjectChanged(this.props, nextProps);
   }
 
   onScroll() {

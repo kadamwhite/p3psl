@@ -29,3 +29,6 @@ export const collapseHeader = actionCreator(COLLAPSE_HEADER);
 
 export const EXPAND_HEADER = 'EXPAND_HEADER';
 export const expandHeader = actionCreator(EXPAND_HEADER);
+
+export const SEARCH = 'SEARCH';
+export const search = actionCreator(SEARCH);

@@ -1,0 +1,71 @@
+.shadow {
+  list-style-type: none;
+  margin-bottom: 2em;
+}
+
+.shadow h2 {
+  font-weight: normal;
+}
+.shadow h2 a {
+  text-decoration-color: #282828;
+}
+
+.shadow p {
+  font-size: 0.9em;
+  margin: 0.5em 0;
+}
+
+.shadow .stats {
+  margin: 0 -0.75em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-bottom: 1px solid;
+}
+
+.shadow thead tr {
+  color: white;
+}
+.shadow tr {
+  padding: 0 0.75em;
+}
+.shadow th,
+.shadow td {
+  font-size: 0.9em;
+}
+.shadow th {
+  padding: 0.1em 0.5em;
+}
+.shadow td {
+  padding: 0.1em 0.5em;
+  border-right: 1px dotted;
+  border-color: inherit;
+  font-weight: light;
+}
+.shadow th:last-child,
+.shadow td:last-child {
+  border-right: 0;
+}
+
+.shadow .arcana {
+  font-style: italic;
+}
+
+.shadow .skills ul {
+  margin-top: 0.25em;
+  list-style-type: none;
+  padding: 0;
+  font-size: 0.9em;
+  font-style: italic;
+}
+.shadow li:before {
+  content: "- ";
+}
+
+.shadow .arcana,
+.shadow .elements,
+.shadow .skills {
+  margin: 1em 0;
+}
