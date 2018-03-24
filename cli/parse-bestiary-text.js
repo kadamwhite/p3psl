@@ -20,7 +20,7 @@ const { compressObj } = require( '../src/isomorphic-utils/data-compression' );
 
 const SECTION_HEADING_RE = /\s+\/=+\\\n\s+\(\s(.*?)\s\)\s+\(Q\d+\)\n\s+\\=+\//;
 const ENTRY_NAME_RE = /^\.=+\.\n\|\s+(.*?)\s+\|\n/;
-const ENTRY_METADATA_RE = /\|\s+ARCANA\s+\|\s+LVL\s+\|\s+HP\s+\|\s+SP\s+\|\s+LOCATION\s+\|\n[|-]+\n\|\s([\w\s]+)\s\|\s([\s\d]+)\s\|\s([\s\d]+)\s\|\s([\s\d]+)\s\|(\s([\w\s\d-]+?)\s\|)?/i;
+const ENTRY_METADATA_RE = /\|\s+ARCANA\s+\|\s+LVL\s+\|\s+HP\s+\|\s+SP\s+\|\s+LOCATION\s+\|\n[|-]+\n\|\s([\w\s]+)\s\|\s([\s\d]+)\s\|\s([\s\d,]+)\s\|\s([\s\d]+)\s\|(\s([\w\s\d-]+?)\s\|)?/i;
 const ENTRY_WEAKNESS_RE = /\|\s+SLASH\s+\|\s+STRKE\s+\|\s+PIRCE\s+\|\s+FIRE\s+\|\s+ICE\s+\|\s+ELEC\s+\|\s+WIND\s+\|\s+LIGHT\s+\|\s+DARK\s+\|\n[|-]+\n\|\s([\s\w]+)\s\|\s([\s\w]+)\s\|\s([\s\w]+)\s\|\s([\s\w]+)\s\|\s([\s\w]+)\s\|\s([\s\w]+)\s\|\s([\s\w]+)\s\|\s([\s\w]+)\s\|\s([\s\w]+)\s\|/
 const ENTRY_SKILLS_RE = /\|\s-\s([^|]+)\|/g;
 
@@ -34,7 +34,7 @@ const trimAndCleanMatch = match => match && match.map( capture => {
     return '';
   }
   const trimmed = capture.trim().replace(/\s\|\s*$/, '');
-  return /^\d+$/.test( trimmed ) ? +trimmed : trimmed;
+  return /^\d+(,\d+)?$/.test( trimmed ) ? +trimmed.replace(',', '') : trimmed;
 } ) || [];
 
 /**
