@@ -40,19 +40,20 @@ class Content extends Component {
 
   render() {
     const { children, className, LoadingSpinner } = this.props;
-    const contentClasses = classNames(className, {
-      loading: LoadingSpinner,
-    });
+    const loading = !!LoadingSpinner;
+
     return (
-      <div
-        className={ contentClasses }
-        ref={ node => { this.contentContainer = node } }
-      >
-        { LoadingSpinner ? (
-          <LoadingSpinner />
-        ) : (
-          children
-        )}
+      <div className="content-wrapper">
+        <div
+          className={ classNames('content', { loading }) }
+          ref={ node => { this.contentContainer = node } }
+        >
+          { LoadingSpinner ? (
+            <LoadingSpinner />
+          ) : (
+            children
+          )}
+        </div>
       </div>
     );
   }

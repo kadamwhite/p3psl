@@ -4,8 +4,8 @@
   padding: 0;
   background: transparent;
   border: 0;
-  width: 45px;
-  height: 45px;
+  width: 90px;
+  height: 90px;
   display: inline-block;
 }
 .select-color-scheme:focus {
@@ -22,5 +22,5 @@
   border-top-left-radius: 2px;
 }
 .select-color-scheme img {
-  width: 45px;
+  width: 90px;
 }

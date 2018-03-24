@@ -1,6 +1,7 @@
 .spinner {
   display: inline-block;
   max-width: 4em;
+  margin-top: -6em;
   transform-origin: center;
 
   animation-name: spin;
