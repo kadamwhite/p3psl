@@ -17,6 +17,7 @@
   "scripts": {
     "create-data-file": "node cli/parse-bestiary-text",
     "search": "node cli/search-bestiary",
+    "release": "rm -rf build/ && npm run build && cd build && git init && git remote add origin git@github.com:kadamwhite/p3psl.git && git add . && git commit -m 'Release project' && git branch -m gh-pages && git push -f origin gh-pages",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
