@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import throttle from 'lodash/throttle';
 import rootReducer from './reducers';
 import { loadState, saveState } from './local-storage';
 
@@ -24,8 +25,10 @@ const store = createStore(
   composeEnhancers(applyMiddleware(...middleware)),
 );
 
-store.subscribe(() => {
-  saveState(store.getState());
-});
+store.subscribe(throttle(() => {
+  // Remove properties we do not wish to persist
+  const { filters, ...state } = store.getState();
+  saveState(state);
+}, 1000));
 
 export default store;
