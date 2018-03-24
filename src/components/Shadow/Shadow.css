@@ -27,7 +27,7 @@
   margin: 0 -0.75em;
 }
 
-table {
+.shadow table {
   width: 100%;
   border-collapse: collapse;
   border-bottom: 1px solid;
@@ -47,7 +47,7 @@ table {
   padding: 0.1em 0.5em;
 }
 .shadow td {
-  padding: 0.1em 0.5em;
+  padding: 0.3em 0.5em;
   border-right: 1px dotted;
   border-color: inherit;
   font-weight: light;
@@ -57,7 +57,7 @@ table {
   border-right: 0;
 }
 
-.location {
+.shadow .location {
   text-align: center;
   border-top: 1px solid;
 }
@@ -67,7 +67,7 @@ table {
 }
 
 .shadow .skills ul {
-  margin: 0.25em 0 2em;
+  margin: 0.25em 0;
   list-style-type: none;
   padding: 0;
   font-size: 0.9em;
@@ -81,4 +81,11 @@ table {
 .shadow .elements,
 .shadow .skills {
   margin: 1em 0;
+}
+
+.shadow .elements:last-child {
+  margin-bottom: 1em;
+}
+.shadow .skills:last-child {
+  margin-bottom: 2em;
 }

@@ -33,9 +33,12 @@ const Stats = ({ shadow, color }) => hasStats(shadow) ? (
         <td>{ shadow.hp }</td>
         <td>{ shadow.sp }</td>
       </tr>
-      { shadow.location ? (
+      { ( shadow.block || shadow.location ) ? (
         <tr>
           <td className="location" colSpan="3">
+            { shadow.block }
+            { shadow.location && ':' }
+            { shadow.location && <br /> }
             { shadow.location }
           </td>
         </tr>
@@ -61,9 +64,16 @@ const Elements = ({ elements }) => (
 
 // const Shadow = ({ shadow, color }) => {
 const Shadow = (props) => {
-  const { shadow, color } = props;
+  const { single, shadow, color } = props;
+
+  const WrappingTag = ({ children, ...props }) => single ? (
+    <div { ...props }>{ children }</div>
+  ) : (
+    <li { ...props }>{ children }</li>
+  );
+
   return (
-    <li className="shadow" style={{ borderColor: color.secondary }}>
+    <WrappingTag className="shadow" style={{ borderColor: color.secondary }}>
       <h2>
         <Link
           style={{ color: color.secondary }}
@@ -79,15 +89,17 @@ const Shadow = (props) => {
 
       <Elements elements={shadow.weaknesses} />
 
-      <div className="skills">
-        <p>Skills:</p>
-        <ul className="skills">
-          { shadow.skills.map((skill) => (
-            <li key={skill}>{ skill }</li>
-          ))}
-        </ul>
-      </div>
-    </li>
+      { single ? (
+        <div className="skills">
+          <p>Skills:</p>
+          <ul className="skills">
+            { shadow.skills.map((skill) => (
+              <li key={skill}>{ skill }</li>
+            ))}
+          </ul>
+        </div>
+      ) : null }
+    </WrappingTag>
   );
 }
 
@@ -97,6 +109,7 @@ Shadow.propTypes = {
     secondary: PropTypes.string.isRequired,
   }),
   shadow: shadow.isRequired,
+  single: PropTypes.bool.isRequired,
 };
 
 export default Shadow;
