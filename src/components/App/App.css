@@ -26,7 +26,8 @@ header a {
 .content {
   flex-grow: 1;
   overflow-x: none;
-  overflow-y: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   margin: 0.5em;
   padding: 0 0.75em 45px 0.75em;
   background: rgba( 255, 255, 255, 0.5 );
