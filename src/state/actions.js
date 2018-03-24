@@ -4,15 +4,12 @@ export const LOAD_DATA = 'LOAD_DATA';
 export const RECEIVE_DATA = 'RECEIVE_DATA';
 export const loadData = () => (dispatch) => {
   dispatch({ type: LOAD_DATA });
-  setTimeout(
-    () => getData()
-      .then(data => dispatch({
-        type: RECEIVE_DATA,
-        payload: data,
-      }))
-      .catch(err => console.error(err)),
-    1000
-  );
+  () => getData()
+    .then(data => dispatch({
+      type: RECEIVE_DATA,
+      payload: data,
+    }))
+    .catch(err => console.error(err));
 };
 
 /**
