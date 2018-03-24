@@ -18,7 +18,7 @@ Header.propTypes = {
   collapsed: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => { console.log(ownProps.match.params.shadow); return ({
+const mapStateToProps = (state, ownProps) => ({
   // Collapse when scrolled down or when searching
   collapsed: !!(
     // Collapsed if we know we're collapsed
@@ -29,6 +29,5 @@ const mapStateToProps = (state, ownProps) => { console.log(ownProps.match.params
     ownProps.match.params.shadow
   ),
 });
-}
 
 export default withRouter(connect(mapStateToProps)(Header));
