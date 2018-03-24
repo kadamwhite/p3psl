@@ -75,12 +75,13 @@ const Shadow = (props) => {
   return (
     <WrappingTag className="shadow" style={{ borderColor: color.secondary }}>
       <h2>
-        <Link
-          style={{ color: color.secondary }}
-          to={ `/${ shadow.slug }/` }
-        >
-          { shadow.name }
-        </Link>
+        { single ? (
+          shadow.name
+        ) : (
+          <Link style={{ color: color.secondary }} to={ `/${ shadow.slug }/` }>
+            { shadow.name }
+          </Link>
+        ) }
       </h2>
 
       <ArcanaMessage arcana={ shadow.arcana } />
@@ -109,7 +110,11 @@ Shadow.propTypes = {
     secondary: PropTypes.string.isRequired,
   }),
   shadow: shadow.isRequired,
-  single: PropTypes.bool.isRequired,
+  single: PropTypes.bool,
+};
+
+Shadow.defaultProps = {
+  single: false,
 };
 
 export default Shadow;

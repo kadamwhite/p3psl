@@ -39,7 +39,7 @@ class Content extends Component {
   }
 
   render() {
-    const { children, className, LoadingSpinner } = this.props;
+    const { children, LoadingSpinner } = this.props;
     const loading = !!LoadingSpinner;
 
     return (
@@ -60,16 +60,11 @@ class Content extends Component {
 }
 
 Content.propTypes = {
-  className: PropTypes.string,
   children: renderable.isRequired,
   collapsed: PropTypes.bool.isRequired,
   LoadingSpinner: PropTypes.func,
   onExpand: PropTypes.func.isRequired,
   onCollapse: PropTypes.func.isRequired,
-};
-
-Content.defaultProps = {
-  className: 'content',
 };
 
 export default Content;

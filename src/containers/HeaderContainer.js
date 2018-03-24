@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import classNames from 'classnames';
 import LogoHeader from '../components/Logo';
 
@@ -17,9 +18,17 @@ Header.propTypes = {
   collapsed: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => { console.log(ownProps.match.params.shadow); return ({
   // Collapse when scrolled down or when searching
-  collapsed: !!(state.collapsed || state.filters.search),
+  collapsed: !!(
+    // Collapsed if we know we're collapsed
+    state.collapsed ||
+    // Show as collapsed when filtering
+    state.filters.search ||
+    // Show as collapsed on single shadow pages
+    ownProps.match.params.shadow
+  ),
 });
+}
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));

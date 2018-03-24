@@ -10,6 +10,9 @@
   border-bottom: 3px double;
   border-color: inherit;
 }
+.shadow:last-child::after {
+  display: none;
+}
 
 .shadow h2 {
   font-weight: normal;
