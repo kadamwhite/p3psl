@@ -1,5 +1,7 @@
+import classNames from 'classnames';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { renderable } from '../lib/shapes';
 
 class Content extends Component {
   constructor(props) {
@@ -17,7 +19,10 @@ class Content extends Component {
   }
 
   shouldComponentUpdate( nextProps ) {
-    return this.props.children !== nextProps.children;
+    return (
+      this.props.children !== nextProps.children ||
+      this.props.LoadingSpinner !== nextProps.LoadingSpinner
+    );
   }
 
   onScroll() {
@@ -30,13 +35,20 @@ class Content extends Component {
   }
 
   render() {
-    const { children, className } = this.props;
+    const { children, className, LoadingSpinner } = this.props;
+    const contentClasses = classNames(className, {
+      loading: LoadingSpinner,
+    });
     return (
       <div
-        className={ className }
+        className={ contentClasses }
         ref={ node => { this.contentContainer = node } }
       >
-        { children }
+        { LoadingSpinner ? (
+          <LoadingSpinner />
+        ) : (
+          children
+        )}
       </div>
     );
   }
@@ -44,11 +56,9 @@ class Content extends Component {
 
 Content.propTypes = {
   className: PropTypes.string,
-  // children: PropTypes.oneOf([
-  //   PropTypes.node,
-  //   PropTypes.arrayOf( PropTypes.node ),
-  // ]).isRequired,
+  children: renderable.isRequired,
   collapsed: PropTypes.bool.isRequired,
+  LoadingSpinner: PropTypes.func,
   onExpand: PropTypes.func.isRequired,
   onCollapse: PropTypes.func.isRequired,
 };

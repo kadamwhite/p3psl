@@ -9,6 +9,7 @@ import {
 } from '../../containers/ColorSchemeButtonContainer';
 import NoMatch from '../NoMatch';
 import './App.css';
+import ShadowListContainer from '../../containers/ShadowListContainer';
 
 // eslint-disable-next-line
 const LoadingSpinner = () => <Card />;
@@ -42,8 +43,6 @@ const Home = () => (
     <p>Space</p>
     <p>Space</p>
     <p>Space</p>
-    <div className="theme-switcher">
-    </div>
   </div>
 );
 
@@ -56,7 +55,7 @@ const App = () => (
     <HeaderContainer />
     <ContentContainer className="content">
       <Switch>
-        <Route exact path="/" component={ Home } />
+        <Route exact path="/" component={ ShadowListContainer } />
         <Route path="/shadow" component={ Shadow } />
         <Route component={ NoMatch } />
       </Switch>

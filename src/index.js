@@ -3,16 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import BackgroundContainer from './containers/BackgroundContainer';
-import App from './components/App';
+import AppContainer from './containers/AppContainer';
 import store from './state/store';
-import { loadData } from './state/actions';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 window.store = store;
-
-// Kick off initial data load immediately
-store.dispatch(loadData());
 
 ReactDOM.render((
   <Provider store={ store }>
@@ -23,7 +19,7 @@ ReactDOM.render((
 ReactDOM.render((
   <Provider store={ store }>
     <Router>
-      <App />
+      <AppContainer />
     </Router>
   </Provider>
 ), document.getElementById('root'));

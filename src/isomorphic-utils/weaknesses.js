@@ -39,6 +39,24 @@ const weaknessId = weakness => {
   }
 }
 
+// The first two letters let us know what type of weakness
+// we are dealing with.
+const getGroup = (weakness) => weakness.substring(0, 2);
+
+const groupWeaknesses = (weaknesses) => {
+  const groups = weaknesses.reduce((groups, weakness) => {
+    const group = getGroup(weakness);
+    return {
+      ...groups,
+    [ group ]: groups[ group ] ?
+      `${ groups[ group ]}, ${ weakness.replace(/^.*\s/, '') }` :
+      weakness
+    };
+  }, {});
+
+  return Object.values(groups);
+};
+
 /** Assume weaknesses is a string array ordered as elementsOrder. */
 const weaknessesArray = weaknesses => weaknesses.map( weaknessId ).join( '' );
 
@@ -57,6 +75,7 @@ const weaknessesList = elements => elements.split( '' ).reduce(
 ).sort();
 
 module.exports = {
+  groupWeaknesses,
   weaknessesArray,
   weaknessesList,
 };

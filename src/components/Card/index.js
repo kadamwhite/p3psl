@@ -3,13 +3,16 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 const Card = ({ color = 'pink' }) => (
-  <div className={ `spinner ${ color }` }>
-    <div className="card" />
+  <div className="spinner">
+    <div
+      className="card"
+      style={{ background: color }}
+    />
   </div>
 );
 
 Card.propTypes = {
-  color: PropTypes.oneOf(['pink', 'blue']),
+  color: PropTypes.string.isRequired,
 };
 
 export default Card;
