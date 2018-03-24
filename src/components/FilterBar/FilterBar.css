@@ -1,13 +1,35 @@
 .filters {
-  padding: 0.5em 0.5em;
+  padding: 10px 0.5em 7px;
   border-top: 1px solid;
   border-bottom: 1px solid;
 }
 
-.filters input {
-  width: 100%;
-}
+.filters input,
 .filters button {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  border: 0;
+}
+
+.filters input {
+  padding: 4px;
+  font-size: 16px;
+  height: 30px;
+  width: calc( 100% - 30px );
+}
+
+.filters button {
+  background: transparent;
   border: 0;
   border-radius: 0;
+}
+
+.filters .clear {
+  padding: 0;
+}
+.filters .clear svg {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
 }
