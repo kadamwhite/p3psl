@@ -18,7 +18,7 @@ ReactDOM.render((
 
 ReactDOM.render((
   <Provider store={ store }>
-    <Router>
+    <Router basename={`/${ process.env.PUBLIC_URL.split('/').pop() }`}>
       <AppContainer />
     </Router>
   </Provider>
