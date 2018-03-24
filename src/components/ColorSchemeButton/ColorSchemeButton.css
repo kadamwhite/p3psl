@@ -24,3 +24,12 @@
 .select-color-scheme img {
   width: 90px;
 }
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .select-color-scheme {
+    width: 45px;
+    height: 45px;
+  }
+  .select-color-scheme img {
+    width: 45px;
+  }
+}
