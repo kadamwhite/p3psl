@@ -45,7 +45,7 @@ export default ( state = defaultState, action ) => {
   }
 }
 
-const strToRE = (str) => new RegExp(str.split().filter(Boolean).join('.*'), 'i');
+const strToRE = (str) => new RegExp(str.split('').filter(Boolean).join('.*'), 'i');
 
 export const selectSlugs = (state) => state.shadows.slugs;
 export const selectIsLoading = createSelector(
