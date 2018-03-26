@@ -41,7 +41,7 @@ header a {
   overflow-x: none;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  padding: 0 0.75em 70px 0.75em;
+  padding: 0 0.75em 40px 0.75em;
 }
 
 h2, h3 {

@@ -74,23 +74,32 @@ const Shadow = (props) => {
 
   return (
     <WrappingTag className="shadow" style={{ borderColor: color.secondary }}>
-      <h2>
-        { single ? (
-          shadow.name
-        ) : (
-          <Link style={{ color: color.secondary }} to={ `/${ shadow.slug }/` }>
+      <h2 style={{
+        backgroundColor: color.secondary,
+        borderColor: color.primary,
+      }}>
+      { single ? (
+        shadow.name
+      ) : (
+          <Link to={ `/${ shadow.slug }/` } style={{
+            textDecorationColor: color.primary,
+          }}>
             { shadow.name }
           </Link>
-        ) }
+      ) }
       </h2>
 
-      <ArcanaMessage arcana={ shadow.arcana } />
+      { single && (
+        <ArcanaMessage arcana={ shadow.arcana } />
+      ) }
 
-      <Stats { ...{ shadow, color } } />
+      { single && (
+        <Stats { ...{ shadow, color } } />
+      ) }
 
       <Elements elements={shadow.weaknesses} />
 
-      { single ? (
+      { single && (
         <div className="skills">
           <p>Skills:</p>
           <ul className="skills">
@@ -99,7 +108,7 @@ const Shadow = (props) => {
             ))}
           </ul>
         </div>
-      ) : null }
+      ) }
     </WrappingTag>
   );
 }

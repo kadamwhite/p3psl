@@ -1,3 +1,19 @@
 .shadow-list {
-  padding: 0;
+  margin-top: 0; padding: 0;
+}
+.shadow-list .shadow {
+  list-style-type: none;
+  margin-bottom: 1em;
+}
+.shadow-list h2 a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 1.25em;
+}
+.shadow-list h2 a:hover {
+  text-decoration: underline;
+}
+.shadow-list .elements {
+  margin: 0.25em 0;
 }

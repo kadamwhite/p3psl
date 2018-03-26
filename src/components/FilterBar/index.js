@@ -62,6 +62,7 @@ class FilterBar extends PureComponent {
       searchTerm: '',
     });
     this.props.onSearch('');
+    // this.form.querySelector('input').focus();
   }
 
   render() {
