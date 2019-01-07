@@ -1,15 +1,16 @@
 /**
  * Read and expand the data from the compressed bestiary.
  */
+import slugify from './slugify';
+import { weaknessesList } from './weaknesses';
+import { expandObj } from './data-compression';
+
 const {
   bestiary,
   skills,
   blockNames,
 } = require( '../data/data.json' );
 
-const slugify = require( './slugify' );
-const { weaknessesList } = require( './weaknesses' );
-const { expandObj } = require( './data-compression' );
 
 /**
  * Expand a compressed data object.
@@ -42,14 +43,12 @@ const processBestiary = bestiary.reduce(
   Promise.resolve( [] )
 );
 
-module.exports = {
-  /**
-   * Return the full, expanded data objects.
-   * @async
-   */
-  parse: () => processBestiary.then( shadows => ( {
-    shadows,
-    skills,
-    blockNames,
-  } ) ),
-};
+/**
+ * Return the full, expanded data objects.
+ * @async
+ */
+export const parse = () => processBestiary.then( shadows => ( {
+  shadows,
+  skills,
+  blockNames,
+} ) );

@@ -1,4 +1,4 @@
-const capitalize = require( './capitalize' );
+import capitalize from './capitalize';
 
 const elementsOrder = [
   'slash',
@@ -43,7 +43,7 @@ const weaknessId = weakness => {
 // we are dealing with.
 const getGroup = (weakness) => weakness.substring(0, 2);
 
-const groupWeaknesses = (weaknesses) => {
+export const groupWeaknesses = (weaknesses) => {
   const groups = weaknesses.reduce((groups, weakness) => {
     const group = getGroup(weakness);
     return {
@@ -58,10 +58,10 @@ const groupWeaknesses = (weaknesses) => {
 };
 
 /** Assume weaknesses is a string array ordered as elementsOrder. */
-const weaknessesArray = weaknesses => weaknesses.map( weaknessId ).join( '' );
+export const weaknessesArray = weaknesses => weaknesses.map( weaknessId ).join( '' );
 
 /** Take an elements string and break it into human-readable groups. */
-const weaknessesList = elements => elements.split( '' ).reduce(
+export const weaknessesList = elements => elements.split( '' ).reduce(
   ( list, id, idx ) => +id ?
     list.concat( `${
       // Reaction to Element
@@ -73,9 +73,3 @@ const weaknessesList = elements => elements.split( '' ).reduce(
     list,
   []
 ).sort();
-
-module.exports = {
-  groupWeaknesses,
-  weaknessesArray,
-  weaknessesList,
-};

@@ -1,4 +1,4 @@
-module.exports = str => str
+export default str => str
   .toLowerCase()
   .trim()
   .split( /\s+/ )

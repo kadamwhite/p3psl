@@ -1,4 +1,4 @@
-module.exports = str => str
+export default str => str
   .trim()
   .toLowerCase()
   .split( /[\s\W_]+/ )

@@ -14,17 +14,12 @@ const longKeys = Object.keys( shortKeys ).reduce( ( memo, longKey ) => ( {
   [ shortKeys[ longKey ] ]: longKey,
 } ), {} );
 
-const compressObj = obj => Object.keys( obj ).reduce( ( compressedObj, key ) => ( {
+export const compressObj = obj => Object.keys( obj ).reduce( ( compressedObj, key ) => ( {
   ...compressedObj,
   [ shortKeys[ key ] ]: obj[ key ],
 } ), {} );
 
-const expandObj = obj => Object.keys( obj ).reduce( ( expandedObj, key ) => ( {
+export const expandObj = obj => Object.keys( obj ).reduce( ( expandedObj, key ) => ( {
   ...expandedObj,
   [ longKeys[ key ] ]: obj[ key ],
 } ), {} );
-
-module.exports = {
-  compressObj,
-  expandObj,
-};
