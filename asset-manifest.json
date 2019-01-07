@@ -1,8 +1,15 @@
 {
-  "main.css": "static/css/main.46e059dd.css",
-  "main.css.map": "static/css/main.46e059dd.css.map",
-  "main.js": "static/js/main.47b74930.js",
-  "main.js.map": "static/js/main.47b74930.js.map",
-  "static/media/female-mc-portrait-icon.png": "static/media/female-mc-portrait-icon.2e88af80.png",
-  "static/media/male-mc-portrait-icon.png": "static/media/male-mc-portrait-icon.764d094b.png"
+  "main.css": "/p3psl/static/css/main.c7651d34.chunk.css",
+  "main.js": "/p3psl/static/js/main.d9f0e03a.chunk.js",
+  "main.js.map": "/p3psl/static/js/main.d9f0e03a.chunk.js.map",
+  "static/js/1.4931ae41.chunk.js": "/p3psl/static/js/1.4931ae41.chunk.js",
+  "static/js/1.4931ae41.chunk.js.map": "/p3psl/static/js/1.4931ae41.chunk.js.map",
+  "runtime~main.js": "/p3psl/static/js/runtime~main.d8bc431a.js",
+  "runtime~main.js.map": "/p3psl/static/js/runtime~main.d8bc431a.js.map",
+  "static/css/main.c7651d34.chunk.css.map": "/p3psl/static/css/main.c7651d34.chunk.css.map",
+  "static/media/male-mc-portrait-icon.png": "/p3psl/static/media/male-mc-portrait-icon.764d094b.png",
+  "static/media/female-mc-portrait-icon.png": "/p3psl/static/media/female-mc-portrait-icon.2e88af80.png",
+  "index.html": "/p3psl/index.html",
+  "precache-manifest.81bff001c45896c0deb7bad49410dfdf.js": "/p3psl/precache-manifest.81bff001c45896c0deb7bad49410dfdf.js",
+  "service-worker.js": "/p3psl/service-worker.js"
 }
